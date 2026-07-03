@@ -1,72 +1,63 @@
 # Reward Jar
 
-A small, playful SwiftUI iOS app. Tap the buttons to drop stars and gems into a
-glass jar. Stars are worth 1 point and gems are worth 2. As the jar nears full
-it wobbles and buzzes, and once it hits capacity (10 points) a full-screen
-celebration bursts with confetti and a trophy. Tapping the celebration empties
-the jar to start again.
+A SwiftUI iOS app that gamifies reward tracking with a visual jar you fill up with stars and gems.
 
-This document is the master overview of every code file in the project. Each
-source file also carries its own plain-English `Description:` block at the top.
+## What it does
 
-## Project layout
+Tap the star or gem buttons to drop items into an animated glass jar. Stars are worth 1 point each; gems are worth 2. When the jar reaches 10 points, a celebration screen fires with a confetti burst and a trophy panel. Tapping anywhere resets the jar for the next round.
+
+### Details
+
+- **Stars** (⭐) — worth 1 point
+- **Gems** (💎) — worth 2 points
+- **Capacity** — 10 points to fill the jar
+- **Nearly full warning** — at 8+ points the jar wobbles and the lid rattles to signal it's almost time to celebrate
+- **Celebration** — emoji particles explode outward, a "Reward Earned" panel springs in, haptics and sound effects play throughout
+
+## Tech
+
+- Swift / SwiftUI
+- iOS (portrait, phone)
+- Custom `Shape`-based jar drawn entirely in code — no image assets
+- `TimelineView` drives the wobble animation when the jar is nearly full
+- `AVFoundation` via `SoundManager` for sound effects
+- `UIImpactFeedbackGenerator` / `UINotificationFeedbackGenerator` for haptics
+
+## Project structure
+
+Each source file also carries its own plain-English `Description:` block at the top.
 
 ```
-reward-jar/            App source code (SwiftUI)
-reward-jarTests/       Unit tests
-reward-jarUITests/     UI / launch tests
-reward-jar.xcodeproj/  Xcode project files
+reward-jar/
+├── reward_jarApp.swift     # App entry point — creates the window, shows ContentView
+├── ContentView.swift       # Root view and central controller: state + add-item logic
+├── JarItem.swift           # Data model — kind (star/gem), point value, tilt/jitter
+├── Jar.swift               # Glass jar (body, lid, highlights) + item pile layout
+├── CartoonItem.swift       # Finished glossy star/gem icons, layered from the shapes
+├── CartoonShapes.swift     # Raw vector outlines for the star, gem, and shine highlights
+├── Counters.swift          # Top row of star/gem counter chips
+├── Buttons.swift           # Big round add-item buttons with bounce press effect
+├── Celebration.swift       # Confetti explosion + reward panel overlay when jar is full
+├── Background.swift         # Soft pink-to-lavender gradient background
+├── Palette.swift           # Single source of truth for colors and gradients
+└── SoundManager.swift      # Synthesizes and plays all sound effects at runtime
 ```
 
-## App source files (`reward-jar/`)
+Test targets:
 
-- **reward_jarApp.swift** — The app's entry point. Creates the app window and
-  shows the main screen (`ContentView`) when the app launches.
-- **ContentView.swift** — The main screen and central controller. Tracks the
-  items in the jar, shows the counters, the jar, and the two add buttons;
-  handles adding items, the near-full wobble, and triggering/dismissing the
-  celebration.
-- **JarItem.swift** — The data model for one item. Records whether it's a star
-  or gem, its random tilt and position jitter, and its point value (star = 1,
-  gem = 2).
-- **Palette.swift** — A single source of truth for all colors and gradients
-  used across the app (stars, gems, lid, glass).
-- **Background.swift** — The soft pink-to-lavender gradient backdrop with two
-  glowing corner accents that sits behind everything.
-- **Counters.swift** — The top row of two pill-shaped counters showing how many
-  stars and gems have been collected, with the numbers animating on change.
-- **Buttons.swift** — The two large round "add star" / "add gem" buttons,
-  including the springy bounce effect when pressed.
-- **CartoonShapes.swift** — The raw vector outlines (geometry only) for the star
-  and gem plus their smaller shine highlights.
-- **CartoonItem.swift** — Builds the finished, glossy star and gem icons by
-  layering shadow, fill, shading, outline, and shine over the shapes. Reused in
-  the buttons, counters, and jar.
-- **Jar.swift** — Draws the glass jar (body, lid, knob, highlights, reflections)
-  and arranges the collected items in staggered rows piling up inside it.
-- **Celebration.swift** — The full-screen "you did it!" overlay: dimmed
-  background, bursting emoji confetti, and a trophy reward panel. Tapping it
-  dismisses and resets the jar.
-- **SoundManager.swift** — Generates all sound effects in code (no audio files)
-  and plays them: `playStar()`, `playGem()`, `playVibration()`, and
-  `playExplosion()`.
-
-## Test files
-
-- **reward-jarTests/reward_jarTests.swift** — Unit test target for the app's
-  logic. Currently a placeholder ready for tests.
-- **reward-jarUITests/reward_jarUITests.swift** — UI test target that launches
-  the app to test it like a user would; includes a launch-performance test.
-- **reward-jarUITests/reward_jarUITestsLaunchTests.swift** — Launches the app and
-  captures a screenshot of the first screen to verify a clean startup.
+- `reward-jarTests/` — unit tests (placeholder, ready for logic tests)
+- `reward-jarUITests/` — UI tests that launch the app, plus a launch-screenshot test
 
 ## How the pieces fit together
 
 1. `reward_jarApp` launches and shows `ContentView`.
-2. `ContentView` lays out `ModernBackground`, `CounterRow`, the `Jar`, and two
-   `BigButton`s.
+2. `ContentView` lays out `ModernBackground`, `CounterRow`, the `Jar`, and two `BigButton`s.
 3. Tapping a button asks `SoundManager` to play a sound and appends a `JarItem`.
-4. `Jar` re-renders the pile using `CartoonItem` (built from `CartoonShapes`),
-   all styled with `Palette`.
-5. When the total reaches capacity, `ContentView` shows `CelebrationView`;
-   tapping it clears the jar.
+4. `Jar` re-renders the pile using `CartoonItem` (built from `CartoonShapes`), all styled with `Palette`.
+5. When the total reaches capacity, `ContentView` shows `CelebrationView`; tapping it clears the jar.
+
+See [`CLAUDE.md`](CLAUDE.md) for deeper architecture notes and a guide to adding a new item kind.
+
+## Running the app
+
+Open `reward-jar.xcodeproj` in Xcode, select an iOS simulator or device, and press Run.

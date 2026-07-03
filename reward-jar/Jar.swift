@@ -2,6 +2,12 @@
 //  Jar.swift
 //  reward-jar
 //
+//  Description:
+//  Draws the glass jar and everything that makes it look like a jar: the body,
+//  the lid with its knob, the glassy highlights and reflections. It also lays
+//  out the collected stars and gems in tidy rows piling up inside the jar, with
+//  each item slightly jittered so the pile looks natural.
+//
 
 import SwiftUI
 

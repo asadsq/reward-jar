@@ -4,6 +4,10 @@
 //
 //  Created by Asad Saleem Qureshi on 6/17/26.
 //
+//  Description:
+//  The unit-test file for the app's logic. It currently holds a placeholder
+//  test and is where automated tests of the app's inner workings would go.
+//
 
 import Testing
 @testable import reward_jar

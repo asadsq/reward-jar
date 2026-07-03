@@ -4,6 +4,11 @@
 //
 //  Created by Asad Saleem Qureshi on 6/17/26.
 //
+//  Description:
+//  A launch test that opens the app and takes a screenshot of the first screen.
+//  It's handy for confirming the app starts up correctly and for keeping a
+//  visual record of the launch screen.
+//
 
 import XCTest
 

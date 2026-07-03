@@ -4,6 +4,10 @@
 //
 //  Created by Asad Saleem Qureshi on 6/17/26.
 //
+//  Description:
+//  The app's starting point. When the app launches, this creates the
+//  single window and shows the main screen (ContentView) inside it.
+//
 
 import SwiftUI
 

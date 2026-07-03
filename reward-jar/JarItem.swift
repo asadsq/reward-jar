@@ -2,6 +2,11 @@
 //  JarItem.swift
 //  reward-jar
 //
+//  Description:
+//  The simple data model for one item in the jar. Each item is either a star or
+//  a gem, remembers a random tilt and slight position offset so the pile looks
+//  hand-placed, and knows its point value (a star is worth 1, a gem is worth 2).
+//
 
 import Foundation
 

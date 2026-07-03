@@ -2,6 +2,11 @@
 //  Buttons.swift
 //  reward-jar
 //
+//  Description:
+//  The two big round buttons at the bottom of the screen used to add a star or
+//  a gem to the jar. Each button shows the cartoon icon on a colored circle and
+//  gives a springy "bounce" when pressed to make tapping feel satisfying.
+//
 
 import SwiftUI
 

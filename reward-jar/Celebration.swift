@@ -2,6 +2,12 @@
 //  Celebration.swift
 //  reward-jar
 //
+//  Description:
+//  The full-screen "you did it!" celebration that appears once the jar is full.
+//  It dims the screen, bursts emoji confetti outward, and pops up a reward panel
+//  with a trophy. Tapping anywhere dismisses it, which empties the jar to start
+//  over.
+//
 
 import SwiftUI
 

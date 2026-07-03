@@ -2,6 +2,12 @@
 //  CartoonItem.swift
 //  reward-jar
 //
+//  Description:
+//  Turns the plain star and gem outlines into finished, good-looking icons. It
+//  stacks a drop shadow, the colored fill, a bottom shading, an outline, and a
+//  bright shine highlight so each item looks glossy and three-dimensional. This
+//  is the reusable icon shown in the buttons, counters, and inside the jar.
+//
 
 import SwiftUI
 

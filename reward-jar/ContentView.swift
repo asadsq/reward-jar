@@ -4,6 +4,13 @@
 //
 //  Created by Asad Saleem Qureshi on 6/17/26.
 //
+//  Description:
+//  The main screen of the app and the "brain" that ties everything together.
+//  It keeps track of the items in the jar, shows the star/gem counters, the
+//  jar itself, and the two big add buttons. Tapping a button drops an item in
+//  the jar and plays a sound. When the jar gets close to full it wobbles, and
+//  once it's completely full it triggers the celebration overlay.
+//
 
 import SwiftUI
 

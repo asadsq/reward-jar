@@ -2,6 +2,11 @@
 //  Palette.swift
 //  reward-jar
 //
+//  Description:
+//  One central place that holds all the app's colors and gradients (for the
+//  stars, gems, jar lid, and glass). Keeping them here means the whole app uses
+//  the same consistent look, and colors can be tweaked in a single spot.
+//
 
 import SwiftUI
 

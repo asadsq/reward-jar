@@ -2,6 +2,11 @@
 //  Counters.swift
 //  reward-jar
 //
+//  Description:
+//  The row of two pill-shaped counters at the top of the screen. Each pill
+//  shows a small star or gem icon next to the number collected so far, and the
+//  number animates smoothly whenever it changes.
+//
 
 import SwiftUI
 

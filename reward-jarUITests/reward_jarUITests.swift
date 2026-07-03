@@ -4,6 +4,11 @@
 //
 //  Created by Asad Saleem Qureshi on 6/17/26.
 //
+//  Description:
+//  The user-interface test file. It launches the real app and is where
+//  automated tests that tap through the screens (like a user would) would go.
+//  It also includes a test that measures how long the app takes to launch.
+//
 
 import XCTest
 

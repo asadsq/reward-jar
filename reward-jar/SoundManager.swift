@@ -2,6 +2,12 @@
 //  SoundManager.swift
 //  reward-jar
 //
+//  Description:
+//  Creates and plays all of the app's sound effects. Instead of using audio
+//  files, it generates the sounds from scratch in code (tones, chimes, a buzz,
+//  and an explosion) and plays them through the phone's speaker. Other parts of
+//  the app just call playStar(), playGem(), playVibration(), or playExplosion().
+//
 
 import AVFoundation
 

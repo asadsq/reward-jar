@@ -2,6 +2,11 @@
 //  Background.swift
 //  reward-jar
 //
+//  Description:
+//  The soft, colorful gradient backdrop that sits behind everything else on the
+//  screen. It layers a diagonal pink-to-lavender wash with two glowing spots in
+//  the corners to give the app a warm, modern feel.
+//
 
 import SwiftUI
 

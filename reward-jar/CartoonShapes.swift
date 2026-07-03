@@ -2,6 +2,11 @@
 //  CartoonShapes.swift
 //  reward-jar
 //
+//  Description:
+//  The raw outlines used to draw a star and a gem, plus the smaller "shine"
+//  shapes that go on top of them for a glossy look. These are just the vector
+//  paths (the geometry); the coloring and shading happen in CartoonItem.swift.
+//
 
 import SwiftUI
 
